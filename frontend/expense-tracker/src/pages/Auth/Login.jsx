@@ -1,11 +1,11 @@
 import React,{useState, useContext} from 'react'
 import AuthLayout from '../../components/layouts/AuthLayout';
 import {useNavigate,Link} from "react-router-dom";
-import Input from '../../components/Inputs/input';
+import Input from '../../components/Inputs/Input';
 import { validateEmail } from '../../utils/helper';
 import axiosInstance from '../../utils/axiosInstance';
 import { API_PATHS,BASE_URL } from '../../utils/apiPaths';
-import { UserContext,UserProvider } from '../../context/userContext';
+import { UserContext,UserProvider } from '../../context/UserContext';
 
 const Login = () => {
   const [email,setEmail] = useState("");
