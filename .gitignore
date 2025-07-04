@@ -1,0 +1,10 @@
+# Node modules
+backend/node_modules/
+frontend/expense-tracker/node_modules/
+
+# Environment variables
+backend/.env
+
+# Logs and system files
+*.log
+.DS_Store
