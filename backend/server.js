@@ -13,13 +13,22 @@ const dashboardRoutes = require("./routes/dashboardRoutes");
 const app = express();
 
 //Middleware to handle cors
-app.use(
-    cors({
-        origin:process.env.CLIENT_URL || "*",
-        methods: ["GET","POST","PUT","DELETE"],
-        allowHeaders: ["Content-Type", "Authorization"]
-    })
-)
+const allowedOrigins = [
+    process.env.CLIENT_URL,
+    'http://localhost:5173'
+]
+
+app.use(cors({
+    origin : function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)){
+            callback(null,true)
+        }else {
+            callback(new Error('Not allowed by CORS'))
+        }
+    },
+    methods:['GET','POST','PUT','DELETE'],
+    allowedHeaders:['Content-Type','Authorization']
+}))
 
 app.use(express.json());
 
